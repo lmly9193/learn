@@ -1,0 +1,91 @@
+<?php
+
+namespace {{ namespace }};
+
+trait {{ trait }}
+{
+    public static function boot{{ trait }}()
+    {
+        if (app()->runningInConsole()) return;
+
+        /**
+         * Eloquent ORM Operations
+         *
+         * Create      : saving, creating, retrieved, created, saved
+         * Read        : retrieved
+         * Update      : saving, updating, retrieved, updated, saved
+         * Delete      : deleting, deleted
+         * Soft-Delete : deleting, trashed, retrieved, deleted
+         * Restore     : restoring, saving, updating, retrieved, updated, saved, retrieved, restored
+         * Force-Delete: forceDeleting, deleting, deleted, forceDeleted
+         * Replicate   : replicating
+         */
+
+        static::retrieved(function ($model) {
+            //
+        });
+
+        static::creating(function ($model) {
+            //
+        });
+
+        static::created(function ($model) {
+            //
+        });
+
+        static::updating(function ($model) {
+            //
+        });
+
+        static::updated(function ($model) {
+            //
+        });
+
+        static::saving(function ($model) {
+            //
+        });
+
+        static::saved(function ($model) {
+            //
+        });
+
+        static::deleting(function ($model) {
+            //
+        });
+
+        static::deleted(function ($model) {
+            //
+        });
+
+        if (method_exists(static::class, 'bootSoftDeletes')) {
+            static::softDeleted(function ($model) {
+                //
+            });
+
+            static::restoring(function ($model) {
+                //
+            });
+
+            static::restored(function ($model) {
+                //
+            });
+
+            static::forceDeleting(function ($model) {
+                //
+            });
+
+            static::forceDeleted(function ($model) {
+                //
+            });
+        }
+
+        static::replicating(function ($model) {
+            //
+        });
+    }
+
+    public function initialize{{ trait }}()
+    {
+        //
+    }
+}

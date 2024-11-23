@@ -1,0 +1,128 @@
+@use 'sass:math';
+
+// 背景
+.bg-repeat-0 {
+    background-repeat: no-repeat !important;
+}
+
+.bg-repeat-x {
+    background-repeat: repeat-x !important;
+}
+
+.bg-repeat-y {
+    background-repeat: repeat-y !important;
+}
+
+.bg-cover {
+    background-size: cover !important;
+}
+
+.bg-contain {
+    background-size: contain !important;
+}
+
+.bg-center {
+    background-position: center !important;
+}
+
+// 高斯模糊
+@for $i from 0 through 5 {
+    .blur-#{$i} {
+        filter: blur(#{$i}px) !important;
+        -webkit-filter: blur(#{$i}px) !important;
+        -moz-filter: blur(#{$i}px) !important;
+        -o-filter: blur(#{$i}px) !important;
+        -ms-filter: blur(#{$i}px) !important;
+    }
+}
+
+// 透明
+@for $i from 0 through 5 {
+    .opacity-#{$i} {
+        opacity: $i * 0.2 !important;
+    }
+}
+
+// 邊界
+@each $side in top, left, bottom, right {
+    @for $i from 1 through 5 {
+        .border-#{$side}-#{$i} {
+            border-#{$side}: #{$i}px solid !important;
+        }
+    }
+}
+
+// 字型大小
+@for $size from 11 through 28 {
+    .fs-#{$size} {
+        font-size: #{$size}px !important;
+    }
+}
+
+@each $size in 32, 36, 48, 72 {
+    .fs-#{$size} {
+        font-size: #{$size}px !important;
+    }
+}
+
+// 內距
+@each $size in 50, 55, 60, 66, 100 {
+    .pt-#{$size} {
+        padding-top: $size * 1% !important;
+    }
+}
+
+// 位置
+.top-0 {
+    top: 0 !important;
+}
+.bottom-0 {
+    bottom: 0 !important;
+}
+.start-0 {
+    left: 0 !important;
+}
+.end-0 {
+    right: 0 !important;
+}
+.top-none {
+    top: unset !important;
+}
+.bottom-none {
+    bottom: unset !important;
+}
+.start-none {
+    left: unset !important;
+}
+.end-none {
+    right: unset !important;
+}
+
+@each $prefix, $breakpoint in 'xs' 0px, 'sm' 576px, 'md' 768px, 'lg' 992px, 'xl' 1200px, 'xxl' 1400px {
+    @media (min-width: #{$breakpoint}) {
+        .#{$prefix}:top-0 {
+            top: 0 !important;
+        }
+        .#{$prefix}:bottom-0 {
+            bottom: 0 !important;
+        }
+        .#{$prefix}:start-0 {
+            left: 0 !important;
+        }
+        .#{$prefix}:end-0 {
+            right: 0 !important;
+        }
+        .#{$prefix}:top-none {
+            top: unset !important;
+        }
+        .#{$prefix}:bottom-none {
+            bottom: unset !important;
+        }
+        .#{$prefix}:start-none {
+            left: unset !important;
+        }
+        .#{$prefix}:end-none {
+            right: unset !important;
+        }
+    }
+}
