@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+import argparse
+import subprocess
+
+
+class Project:
+    @staticmethod
+    def freeze(args):
+        subprocess.run(["pip", "freeze", ">", "requirements.txt"], check=True, shell=True)
+
+    @staticmethod
+    def install(args):
+        subprocess.run(["pip", "install", "-r", "requirements.txt"], check=True, shell=True)
+
+    @staticmethod
+    def run(args):
+        subprocess.run(["python", "main.py"], check=True, shell=True)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="A simple command-line tool for python projects."
+    )
+    subparsers = parser.add_subparsers()
+
+    # Define the 'freeze' command
+    freeze_parser = subparsers.add_parser("freeze", help="Freeze the dependencies")
+    freeze_parser.set_defaults(func=Project.freeze)
+
+    # Define the 'install' command
+    install_parser = subparsers.add_parser("install", help="Install the dependencies")
+    install_parser.set_defaults(func=Project.install)
+
+    # Define the 'run' command
+    run_parser = subparsers.add_parser("run", help="Run the application")
+    run_parser.set_defaults(func=Project.run)
+
+    # Parse the arguments
+    args = parser.parse_args()
+    if hasattr(args, "func"):
+        args.func(args)
+    else:
+        parser.print_help()

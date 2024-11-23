@@ -1,0 +1,7 @@
+s = input('請輸入一行英文句子？')
+words = s.split(' ')
+print('將英文句子以空白字元切割後，獲得單字為', words)
+s2 = ' '.join(words)
+print('以空白字元結合所有單字後，獲得句子為', s2)
+s3 = s.title()
+print('將每個單字字首轉大寫後，獲得句子為',s3)

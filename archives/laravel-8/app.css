@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Noto+Sans+TC");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css");
+@import url("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css");
+
+body {
+    font-family: Lato, "Noto Sans TC", "Segoe UI", Tahoma, Helvetica, Arial,
+        "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "微軟正黑體",
+        "黑體-繁", "Heiti TC", "Microsoft JhengHei UI", "標楷體", DFKai-SB,
+        sans-serif;
+    text-rendering: optimizeLegibility;
+    background: #fff;
+    color: #333;
+}
